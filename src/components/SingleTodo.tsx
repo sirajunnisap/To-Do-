@@ -43,7 +43,10 @@ const SingleTodo:React.FC<Props> = ({todo,todos,setTodos}:Props) => {
         inputref.current?.focus();
     },[edit]);
 
-  return <form className='todo__single ' onSubmit={(e)=> handleEdit(e,todo.id)}>
+  return <div className='todo__singleDiv'>
+
+
+  <form className='todos__single' onSubmit={(e)=> handleEdit(e,todo.id)}>
      {edit ? (
             <input
               value={editTodo}
@@ -58,7 +61,9 @@ const SingleTodo:React.FC<Props> = ({todo,todos,setTodos}:Props) => {
           )}
    
 
-    <div>
+    
+  </form>
+  <div>
         <span className="icon"  onClick={()=>{
 
             if(!edit && !todo.isDone){
@@ -75,7 +80,7 @@ const SingleTodo:React.FC<Props> = ({todo,todos,setTodos}:Props) => {
             <MdDone/>
         </span>
     </div>
-  </form>
+  </div>
 }
 
 export default SingleTodo
